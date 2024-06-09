@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>average sum</title>
+    </head>
+    <body>
+        <h2>Average of numbers</h2>
+        <p>Enter the number of random numbers to be generated</p>
+        <input type="number" id="countInput" >
+        <button onClick="randomNumberGenerator()"> Generate</button>
+
+        <ul id="numbersList"></ul>
+        <ul ID="averageParagraph"></ul>
+
+        <script src="random.js"></script>
+    </body>
+</html>
