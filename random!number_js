@@ -1,0 +1,22 @@
+function randomNumberGenerator()
+{
+    document.getElementById("numbersList").innerHTML='';
+    document.getElementById("averageParagraph").innerHTML='';
+
+    var count= document.getElementById("countInput").value;
+    count=parseInt(count);
+
+    var numbers=[];
+    var sum=0
+    var average;
+    for(var i=0; i<count;i++)
+    {
+        var c= Math.floor(Math.random()*101);
+        sum+=c;
+        numbers.push(c);
+    }
+    average=sum/count;
+
+    numbersList.innerHTML=numbers.map(number=> "<li>"+ number+ "</li>").join('');
+    averageParagraph.textContent="Average"+average.toFixed(2);
+}
