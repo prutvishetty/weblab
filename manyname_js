@@ -1,0 +1,16 @@
+var names=[];
+var name;
+while ((name=prompt("Enter a name and click on cancel to exit"))!==null)
+{
+    names.push(name);
+}
+names.sort();
+var output= document.getElementById("output");
+var list="<h2> Sroted List</h2><ol>";
+for (var i=0; i< names.length;i++)
+{
+    list+="<li>"+names[i]+"</li>";
+}
+list+="<ol>";
+
+output.innerHTML=list;
