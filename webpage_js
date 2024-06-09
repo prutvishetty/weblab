@@ -1,0 +1,70 @@
+     Create registration form webpage for your site with the following form fields - Name, User name, password and confirm password (both must be the same), year of birth and email, a checkbox for the use to select that he/she agree to the terms and conditions of the website.
+Validations to do on this page:
+       -check if both the passwords are the same.
+       -check if user name, password, confirm password, email are not empty and checkbox is selected.
+       -Password and confirm password are the same.
+       -Email is in the correct format.
+       -Year of birth should be between 1900 and 2000 and must be four digits only.
+
+
+function validateForm() {
+    var name = document.getElementById("name").value.trim();
+    var username = document.getElementById("username").value.trim();
+    var password = document.getElementById("password").value.trim();
+    var confirmPassword = document.getElementById("confirmpassword").value.trim();
+    var yearOfBirth = document.getElementById("yearofbirth").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var agreeTerms = document.getElementById("agreeTerms").checked;
+
+    var isValid = true;
+
+    document.querySelectorAll('.error').forEach(element => {
+        element.textContent = '';
+    });
+
+    if (!name) {
+        document.getElementById("nameerror").textContent = "Enter name";
+        isValid = false;
+    }
+
+    if (!username) {
+        document.getElementById("usernameerror").textContent = "Enter username";
+        isValid = false;
+    }
+
+    if (!password) {
+        document.getElementById("passworderror").textContent = "Enter password";
+        isValid = false;
+    }
+
+    if (!confirmPassword) {
+        document.getElementById("confirmpassworderror").textContent = "Enter confirm password";
+        isValid = false;
+    } else if (password !== confirmPassword) {
+        document.getElementById("confirmpassworderror").textContent = "Passwords do not match";
+        isValid = false;
+    }
+
+    if (!yearOfBirth) {
+        document.getElementById("yearofbirtherror").textContent = "Enter year of birth";
+        isValid = false;
+    } else if (!(/^\d{4}$/).test(yearOfBirth) || yearOfBirth < 1900 || yearOfBirth > 2000) {
+        document.getElementById("yearofbirtherror").textContent = "Enter a valid year of birth between 1900 and 2000";
+        isValid = false;
+    }
+
+    if (!email) {
+        document.getElementById("emailerror").textContent = "Enter email";
+        isValid = false;
+    } else if (!(/^\S+@\S+\.\S+$/).test(email)) {
+        document.getElementById("emailerror").textContent = "Enter a valid email address";
+        isValid = false;
+    }
+
+    if (!agreeTerms) {
+        document.getElementById("agreeTermsError").textContent = "Agree to the terms";
+        isValid = false;
+    }
+
+    return isValid;
+}
