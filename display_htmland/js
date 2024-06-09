@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info Form</title>
+</head>
+<body>
+
+    <form id="userInfoForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br>
+        
+        <label for="hometown">Hometown:</label>
+        <input type="text" id="hometown" name="hometown"><br>
+        
+        <button type="button" onclick="processForm()">Submit</button>
+    </form>
+
+    <div id="userInfo"></div>
+
+    <script>
+        function processForm() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var hometown = document.getElementById("hometown").value;
+
+            var currentYear = new Date().getFullYear();
+            var birthYear = currentYear - age;
+
+            var userInfoDiv = document.getElementById("userInfo");
+            userInfoDiv.innerHTML = "<p>Name: " + name + "</p>";
+            userInfoDiv.innerHTML += "<p>Year of Birth: " + birthYear + "</p>";
+            userInfoDiv.innerHTML += '<p><a href="https://www.google.com/search?q=' + hometown + '" target="_blank">Search for ' + hometown + ' on Google</a></p>';
+        }
+    </script>
+
+</body>
+</html>
